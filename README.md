@@ -64,7 +64,7 @@ The application follows a traditional web application architecture:
 
 5. Install dependencies:
   ```bash
-   pipenv install [packages]
+   pipenv install
    django
    psycopg2
    django-heroku
