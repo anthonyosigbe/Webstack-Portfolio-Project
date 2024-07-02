@@ -76,17 +76,14 @@ The application follows a traditional web application architecture:
    weasyprint
 
 6. Set up the database:
-   ```bash
    python manage.py makemigrations
    python manage.py migrate
 
 
 7. Create a superuser for accessing the admin interface:
-   ```bash
    python manage.py createsuperuser
 
 8. Run the development server:
-   ```bash
    python manage.py runserver
 
 
