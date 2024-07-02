@@ -23,7 +23,6 @@ import threading
 
 # threading is used to speed up response time if a user sends an email request
 
-
 class EmailThread(threading.Thread):
     
     def __init__(self, email):
@@ -34,6 +33,7 @@ class EmailThread(threading.Thread):
         self.email.send(fail_silently=False)
         
     
+# Email Validation configurations
 
 class EmailValidationView(View):
     def post(self, request):
@@ -45,6 +45,8 @@ class EmailValidationView(View):
             return JsonResponse({'email_error': 'Apologies, that email is already in use. Please choose a different one. '}, status=409)
         return JsonResponse({'email_valid': True})
 
+# User name Validation 
+
 class UsernameValidationView(View):
     def post(self, request):
         data = json.loads(request.body)
@@ -54,6 +56,8 @@ class UsernameValidationView(View):
         if User.objects.filter(username=username).exists():
             return JsonResponse({'username_error': 'Apologies, that username is already taken. Please select a different one. '}, status=409)
         return JsonResponse({'username_valid': True})
+
+# New users registration fields
 
 class RegistrationView(View):
     def get(self, request):
@@ -108,6 +112,8 @@ class RegistrationView(View):
                 return render(request, 'authentication/register.html')
 
         return render(request, 'authentication/register.html')
+
+# User Verification using token and unique ID
     
 class VerificationView(View):
     def get(self, request, uidb64, token):
@@ -131,7 +137,9 @@ class VerificationView(View):
 
         return redirect('login')
     
-    
+
+# Login Setup
+
 class LoginView(View):
     def get(self, request):
         return render(request, 'authentication/login.html')
@@ -160,6 +168,7 @@ class LoginView(View):
             request, 'Please fill all fields')
         return render(request, 'authentication/login.html')
 
+# Logout setup
 
 class LogoutView(View):
     def post(self, request):
@@ -214,6 +223,7 @@ class RequestPasswordResetEmail(View):
        
         return render(request, 'authentication/reset-password.html')
 
+# Password Reset
 
 class CompletePasswordReset(View):
     def get(self, request, uidb64, token):
@@ -266,7 +276,3 @@ class CompletePasswordReset(View):
         except Exception as identifier:
             messages.info(request, 'Something went wrong, try again')
             return render(request, 'authentication/set-newpassword.html', context)
-            
-        
-        
-        # return render(request, 'authentication/set-newpassword.html', context)
