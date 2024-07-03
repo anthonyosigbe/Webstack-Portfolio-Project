@@ -64,10 +64,9 @@ The application follows a traditional web application architecture:
 
 5. Install dependencies:
   ```bash
-   pipenv install "dependecies/pakages"
+   pipenv install dependecies/pakages
   
 6. Set up the database:
-   ```bash
    python manage.py makemigrations
    python manage.py migrate
 
