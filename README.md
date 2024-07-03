@@ -3,6 +3,7 @@
 # Group project Front-end Back-end Portfolio project<
 
 # ThroneHub Financial Manager
+![Screenshot 2024-07-03 002950](https://github.com/anthonyosigbe/Webstack-Portfolio-Project/assets/45193993/ed8cf583-a7c6-4907-8ebc-31a45b715f71)
 
 ## Project Description
 ThroneHub Financial Manager is designed to help users track their expenses, manage budgets, and analyze their financial health. The application provides a user-friendly interface for managing personal finances, offering tools for expense tracking, budget management, and financial analysis with visual data representation.
