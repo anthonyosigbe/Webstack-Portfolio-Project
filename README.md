@@ -1,4 +1,4 @@
-## Webstack - Portfolio Project
+# Webstack - Portfolio Project
 
 # Group project Front-end Back-end Portfolio project<
 
@@ -64,27 +64,41 @@ The application follows a traditional web application architecture:
 
 5. Install dependencies:
   ```bash
-   pipenv install
-   django
-   psycopg2
-   django-heroku
-   gunicorn
-   validate-email
-   email-validator
-   six
-   xlwt  
-   weasyprint
-
+   pipenv install "dependecies/pakages"
+  
 6. Set up the database:
+   ```bash
    python manage.py makemigrations
    python manage.py migrate
 
 
 7. Create a superuser for accessing the admin interface:
+   ```bash
    python manage.py createsuperuser
 
 8. Run the development server:
+   ```bash
    python manage.py runserver
+
+
+## Usage
+
+1. Open your web browser and navigate to http://localhost:8000.
+2. Register a new user or log in with existing credentials.
+3. Start tracking your expenses and income.
+4. Visualize your financial data using the built-in charts.
+5. Export your data in CSV or Excel format as needed.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
+## Contributing
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes.
+4. Push to your fork and submit a pull request.
 
 
 
