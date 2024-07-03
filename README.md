@@ -63,7 +63,6 @@ The application follows a traditional web application architecture:
    pipenv shell
 
 5. Install dependencies:
-  ```bash
    pipenv install dependecies/pakages
   
 6. Set up the database:
