@@ -8,11 +8,11 @@ import json
 from django.http import JsonResponse
 from django.core.exceptions import ObjectDoesNotExist
 
-# Create your views here.
-
+# Handles search functionality for income records
 def search_income(request):
     if request.method == 'POST':
         search_str = json.loads(request.body).get('searchText')
+        # Filters income records based on search string
         income = UserIncome.objects.filter(
             amount__istartswith=search_str, owner=request.user) | UserIncome.objects.filter(
             date__istartswith=search_str, owner=request.user) | UserIncome.objects.filter(
@@ -21,6 +21,7 @@ def search_income(request):
         data = income.values()
         return JsonResponse(list(data), safe=False)
 
+# Displays the main income page with pagination
 @login_required(login_url='/authentication/login')
 def index(request):
     categories = Source.objects.all()
@@ -42,6 +43,7 @@ def index(request):
     }
     return render(request, 'income/index.html', context)
 
+# Handles adding new income records
 @login_required(login_url='/authentication/login')
 def add_income(request):
     sources = Source.objects.all()
@@ -66,12 +68,14 @@ def add_income(request):
             messages.error(request, 'description is required')
             return render(request, 'income/add_income.html', context)
 
+        # Creates a new UserIncome record
         UserIncome.objects.create(owner=request.user, amount=amount, date=date,
                                   source=source, description=description)
         messages.success(request, 'Record saved successfully')
 
         return redirect('income')
 
+# Handles editing existing income records
 @login_required(login_url='/authentication/login')
 def income_edit(request, id):
     income = UserIncome.objects.get(pk=id)
@@ -96,6 +100,7 @@ def income_edit(request, id):
         if not description:
             messages.error(request, 'description is required')
             return render(request, 'income/edit_income.html', context)
+        # Updates the UserIncome record
         income.amount = amount
         income.date = date
         income.source = source
@@ -106,6 +111,7 @@ def income_edit(request, id):
 
         return redirect('income')
 
+# Handles deleting income records
 @login_required(login_url='/authentication/login')
 def delete_income(request, id):
     income = UserIncome.objects.get(pk=id)
