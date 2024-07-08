@@ -38,6 +38,10 @@ ThroneHub Financial Manager is designed to help users track their expenses, mana
 - **Additional Technologies:** JSON, CSV, Excel export
 
 ## System Architecture
+
+![ThroneHub_Financial_Manager](https://github.com/anthonyosigbe/Webstack-Portfolio-Project/assets/45193993/08958d62-8289-4cba-a936-e76cd15c94d3)
+
+
 The application follows a traditional web application architecture:
 1. **Frontend:** User interface built with HTML, CSS, and JavaScript.
 2. **Backend:** Django framework handling business logic and data processing.
